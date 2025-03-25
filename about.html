@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kish Investment Park - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --garret-500: #073763;
+            --garret-400: #0A4B85;
+            --garret-600: #052C4E;
+            --garret-100: #D1E1F0;
+            --garret-50: #E8F1F9;
+        }
+
+        /* Global styles */
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Custom Classes */
+        .bg-garret-500 {
+            background-color: var(--garret-500);
+        }
+        .bg-garret-400 {
+            background-color: var(--garret-400);
+        }
+        .bg-garret-600 {
+            background-color: var(--garret-600);
+        }
+        .bg-garret-100 {
+            background-color: var(--garret-100);
+        }
+        .bg-garret-50 {
+            background-color: var(--garret-50);
+        }
+        .text-garret-500 {
+            color: var(--garret-500);
+        }
+        .text-garret-400 {
+            color: var(--garret-400);
+        }
+        .text-garret-600 {
+            color: var(--garret-600);
+        }
+        .text-garret-100 {
+            color: var(--garret-100);
+        }
+
+        .button-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            background-color: var(--garret-500);
+            color: white;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .button-primary:hover {
+            background-color: var(--garret-600);
+        }
+
+        .button-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            background-color: white;
+            color: var(--garret-500);
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .button-secondary:hover {
+            background-color: var(--garret-50);
+        }
+
+        /* Navigation */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            transition: all 0.3s;
+        }
+
+        .nav-scrolled {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-transparent {
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background-color: white;
+            padding-top: 4rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Page specific styles */
+        .prose {
+            max-width: 65ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .prose h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--garret-500);
+        }
+
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .prose .lead {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+
+        .team-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Info Bar -->
+    <div class="hidden md:block bg-garret-500 text-white py-2 px-4">
+        <div class="container mx-auto flex justify-between items-center text-sm">
+            <div class="flex items-center space-x-6">
+                <a href="mailto:invest@kishinvestmentpark.com" class="flex items-center hover:text-garret-100 transition-colors">
+                    <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>invest@kishinvestmentpark.com</span>
+                </a>
+                <a href="tel:+97148823939" class="flex items-center hover:text-garret-100 transition-colors">
+                    <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    <span>+971 4882 3939</span>
+                </a>
+                <a href="https://wa.me/971558881030" class="flex items-center hover:text-garret-100 transition-colors">
+                    <span class="mr-2">WhatsApp:</span>
+                    <span>+971 5588 81030</span>
+                </a>
+            </div>
+            <div class="flex items-center">
+                <div class="flex items-center hover:text-garret-100 transition-colors">
+                    <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="main-nav" class="nav-fixed nav-scrolled">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform hover:scale-105">
+                    <path d="M20 5L40 35H0L20 5Z" fill="#073763"/>
+                    <path d="M50 10H95V16H50V10Z" fill="#073763"/>
+                    <path d="M50 22H80V28H50V22Z" fill="#073763"/>
+                    <path d="M110 10H145V16H110V10Z" fill="#073763"/>
+                    <path d="M110 22H135V28H110V22Z" fill="#073763"/>
+                </svg>
+                <span class="ml-2 text-xl font-semibold text-garret-500">Kish Investment Park</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex space-x-1">
+                <a href="index.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Home</a>
+                <a href="about.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors bg-garret-50">About</a>
+                <a href="e-services.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">E-Services</a>
+                <a href="payment-services.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Payment Services</a>
+                <a href="zones.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Zones</a>
+                <a href="facilities.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Facilities</a>
+                <a href="media.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Media</a>
+                <a href="faqs.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">FAQs</a>
+                <a href="directory.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Directory</a>
+                <a href="contact.html" class="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Contact Us</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="lg:hidden rounded-md p-2 text-garret-500 hover:bg-garret-50 transition-colors">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden">
+            <div class="container mx-auto px-4 py-4 space-y-1 flex flex-col">
+                <button id="close-menu-btn" class="self-end p-2 rounded-md text-garret-500 hover:bg-garret-50 transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <a href="index.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Home</a>
+                <a href="about.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors bg-garret-50">About</a>
+                <a href="e-services.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">E-Services</a>
+                <a href="payment-services.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Payment Services</a>
+                <a href="zones.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Zones</a>
+                <a href="facilities.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Facilities</a>
+                <a href="media.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Media</a>
+                <a href="faqs.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">FAQs</a>
+                <a href="directory.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Directory</a>
+                <a href="contact.html" class="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors">Contact Us</a>
+                
+                <!-- Mobile contact info -->
+                <div class="mt-6 pt-6 border-t border-garret-100">
+                    <div class="space-y-3 text-sm">
+                        <a href="mailto:invest@kishinvestmentpark.com" class="flex items-center text-garret-500">
+                            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span>invest@kishinvestmentpark.com</span>
+                        </a>
+                        <a href="tel:+97148823939" class="flex items-center text-garret-500">
+                            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <span>+971 4882 3939</span>
+                        </a>
+                        <a href="https://wa.me/971558881030" class="flex items-center text-garret-500">
+                            <span class="mr-2">WhatsApp:</span>
+                            <span>+971 5588 81030</span>
+                        </a>
+                        <div class="flex items-center text-garret-500">
+                            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-garret-500 mb-6 reveal">About Kish Investment Park</h1>
+                
+                <div class="prose prose-lg max-w-none reveal">
+                    <p class="lead">Since our establishment, Kish Investment Park has been a cornerstone of industrial development and international trade in the region, offering unparalleled connectivity between Kish Island and global markets.</p>
+                    
+                    <h2>Our History</h2>
+                    <p>Kish Investment Park was founded with a vision to create a world-class industrial and commercial hub that leverages the strategic location of Kish Island as a gateway to international markets. Over the years, we have grown from a modest industrial zone to a comprehensive business ecosystem housing 1444 factories and facilities across various sectors.</p>
+                    
+                    <h2>Our Mission</h2>
+                    <p>To provide state-of-the-art infrastructure and services that enable businesses to thrive in a global marketplace, while contributing to the economic development of the region through sustainable practices and innovation.</p>
+                    
+                    <h2>Our Vision</h2>
+                    <p>To be the premier industrial and commercial park in the Middle East, connecting businesses from Kish to Dubai and from Dubai to the world, fostering economic growth, technological advancement, and sustainable development.</p>
+                    
+                    <h2>Strategic Location</h2>
+                    <p>Located in Kish Island with direct access to Dubai, our investment park serves as a strategic hub for businesses looking to expand their operations in the Middle East, Asia, and beyond. Our proximity to major shipping routes and international airports provides our tenants with unparalleled logistics advantages.</p>
+                    
+                    <h2>Leadership Team</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 my-8 reveal">
+                    <div class="team-card">
+                        <h3 class="text-xl font-semibold mb-2">Ahmed Al-Mansoori</h3>
+                        <p class="text-garret-400 mb-4">Chief Executive Officer</p>
+                        <p>With over 25 years of experience in industrial development, Ahmed has been instrumental in transforming Kish Investment Park into a global business hub.</p>
+                    </div>
+                    <div class="team-card">
+                        <h3 class="text-xl font-semibold mb-2">Sara Al-Hashimi</h3>
+                        <p class="text-garret-400 mb-4">Chief Operations Officer</p>
+                        <p>Sara oversees all operational aspects of the park, ensuring that our infrastructure and services meet the highest international standards.</p>
+                    </div>
+                </div>
+                
+                <div class="prose prose-lg max-w-none reveal">
+                    <h2>Partners & Collaborations</h2>
+                    <p>We have established strategic partnerships with leading organizations across various sectors to provide our tenants with access to a wide range of resources and opportunities. Our collaborations with government agencies, academic institutions, and industry associations further enhance the value proposition of Kish Investment Park.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-garret-500 text-white">
+        <div class="container mx-auto">
+            <!-- Emergency contact banner -->
+            <div class="px-4 py-4 bg-garret-600 rounded-b-lg mx-4 -mt-1 mb-12 shadow-lg">
+                <div class="flex flex-col sm:flex-row items-center justify-between">
+                    <div class="flex items-center mb-4 sm:mb-0">
+                        <svg class="h-5 w-5 mr-2 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                        <span class="font-medium">Emergency Contacts</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4 text-sm">
+                        <a href="tel:+97142123911" class="flex items-center hover:text-amber-200 transition-colors">
+                            <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>Kish Emergency: +971 4212 3911</span>
+                        </a>
+                        <a href="tel:+97142123912" class="flex items-center hover:text-amber-200 transition-colors">
+                            <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>Factory Support: +971 4212 3912</span>
+                        </a>
+                        <a href="tel:+97142123913" class="flex items-center hover:text-amber-200 transition-colors">
+                            <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>Fire Department: +971 4212 3913</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="px-4 py-12 grid md:grid-cols-4 gap-8">
+                <!-- Company info -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-6">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-3">
+                            <path d="M20 5L40 35H0L20 5Z" fill="#FFFFFF"/>
+                        </svg>
+                        <span class="text-xl font-semibold">Kish Investment Park</span>
+                    </div>
+                    <p class="text-garret-100 mb-6">
+                        A premier investment destination offering comprehensive industrial, commercial, and residential facilities.
+                    </p>
+                    <div class="space-y-3">
+                        <a href="mailto:invest@kishinvestmentpark.com" class="flex items-center text-garret-100 hover:text-white transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>invest@kishinvestmentpark.com</span>
+                        </a>
+                        <a href="tel:+97148823939" class="flex items-center text-garret-100 hover:text-white transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>+971 4882 3939</span>
+                        </a>
+                        <a href="https://wa.me/971558881030" class="flex items-center text-garret-100 hover:text-white transition-colors">
+                            <span class="mr-2">WhatsApp:</span>
+                            <span>+971 5588 81030</span>
+                        </a>
+                        <div class="flex items-center text-garret-100">
+                            <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick links -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-medium mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="index.html#about" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-3 w-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#services" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-3 w-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#zones" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-3 w-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                Zones
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#events" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-3 w-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                News & Events
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#gallery" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-3 w-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#directory" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-3 w-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                Product Categories
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-3 w-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-medium mb-6">Resources</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                Investment Guide
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                Business Setup Manual
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                Regulatory Framework
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                Customs Procedures
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-garret-100 hover:text-white transition-colors flex items-center">
+                                <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                Import/Export Guidelines
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-lg font-medium mt-8 mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="p-2 rounded-full bg-garret-400 hover:bg-garret-300 transition-colors">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="p-2 rounded-full bg-garret-400 hover:bg-garret-300 transition-colors">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="p-2 rounded-full bg-garret-400 hover:bg-garret-300 transition-colors">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 19h11a2 2 0 002-2V7a2 2 0 00-2-2h-11a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="p-2 rounded-full bg-garret-400 hover:bg-garret-300 transition-colors">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-medium mb-6">Subscribe to Newsletter</h3>
+                    <p class="text-garret-100 mb-4">
+                        Stay updated with the latest news, events, and opportunities at Kish Investment Park.
+                    </p>
+                    <form class="mb-6">
+                        <div class="mb-3">
+                            <input type="email" placeholder="Your email address" class="w-full px-4 py-2 rounded-md border border-garret-400 bg-garret-600 text-white placeholder-garret-300 focus:outline-none focus:ring-2 focus:ring-white">
+                        </div>
+                        <button type="submit" class="w-full px-4 py-2 bg-white text-garret-500 font-medium rounded-md hover:bg-garret-100 transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                    
+                    <div class="border-t border-garret-400 pt-4">
+                        <h4 class="font-medium mb-2">Business Hours</h4>
+                        <p class="text-garret-100 text-sm">
+                            Monday to Friday: 8:30 AM - 5:30 PM<br>
+                            Saturday: 9:00 AM - 1:00 PM<br>
+                            Sunday: Closed
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom bar -->
+        <div class="bg-garret-600 py-4">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0 text-garret-200 text-sm">
+                        &copy; <span id="current-year"></span> Kish Investment Park. All rights reserved.
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4 text-garret-200 text-sm">
+                        <a href="#" class="hover:text-white transition-colors flex items-center">
+                            Terms of Use
+                            <svg class="ml-1 h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-white transition-colors flex items-center">
+                            Privacy Policy
+                            <svg class="ml-1 h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-white transition-colors flex items-center">
+                            Sitemap
+                            <svg class="ml-1 h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('open');
+        });
+
+        document.getElementById('close-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('open');
+        });
+
+        // Scroll reveal animations
+        function handleScroll() {
+            const revealElements = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            
+            revealElements.forEach((element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        // Trigger once on load
+        handleScroll();
+    </script>
+</body>
+</html>
