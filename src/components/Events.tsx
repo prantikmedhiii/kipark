@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react';
 
@@ -56,7 +55,7 @@ const news = [
     title: 'Sustainable Development Initiative Receives Recognition',
     date: 'August 10, 2023',
     category: 'Sustainability',
-    excerpt: 'Kish Investment Park's environmental conservation efforts recognized with international sustainability award.'
+    excerpt: "Kish Investment Park's environmental conservation efforts recognized with international sustainability award."
   }
 ];
 
