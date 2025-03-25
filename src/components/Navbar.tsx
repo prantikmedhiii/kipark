@@ -1,18 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone, Mail, MapPin } from 'lucide-react';
 
 const navigationLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'E-Services', href: '#services' },
-  { name: 'Payment Services', href: '#payment' },
-  { name: 'Zones', href: '#zones' },
-  { name: 'Facilities', href: '#facilities' },
-  { name: 'Media', href: '#media' },
-  { name: 'FAQs', href: '#faqs' },
-  { name: 'Directory', href: '#directory' },
-  { name: 'Contact Us', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'E-Services', href: '/e-services' },
+  { name: 'Payment Services', href: '/payment-services' },
+  { name: 'Zones', href: '/zones' },
+  { name: 'Facilities', href: '/facilities' },
+  { name: 'Media', href: '/media' },
+  { name: 'FAQs', href: '/faqs' },
+  { name: 'Directory', href: '/directory' },
+  { name: 'Contact Us', href: '/contact' },
 ];
 
 const Navbar = () => {
@@ -71,7 +72,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <svg 
               width="150" 
               height="40" 
@@ -87,18 +88,18 @@ const Navbar = () => {
               <path d="M110 22H135V28H110V22Z" fill="#073763"/>
             </svg>
             <span className="ml-2 text-xl font-semibold text-garret-500">Kish Investment Park</span>
-          </a>
+          </Link>
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex space-x-1">
             {navigationLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="px-3 py-2 text-sm font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
           
@@ -116,14 +117,14 @@ const Navbar = () => {
           <div className="lg:hidden fixed inset-0 z-50 pt-16 bg-white">
             <div className="container mx-auto px-4 py-4 space-y-1 flex flex-col">
               {navigationLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setIsOpen(false)}
                   className="px-3 py-2 text-base font-medium text-garret-500 hover:text-garret-600 hover:bg-garret-50 rounded-md transition-colors"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               
               {/* Mobile contact info */}
