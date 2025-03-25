@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Kish Investment Park</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --garret-50: #f1f5f9;
+            --garret-100: #e2e8f0;
+            --garret-400: #64748b;
+            --garret-500: #073763;
+            --garret-600: #052a4e;
+            --background: #ffffff;
+            --foreground: #333333;
+            --muted-foreground: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background-color: var(--background);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .button-primary {
+            display: inline-block;
+            background-color: var(--garret-500);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button-primary:hover {
+            background-color: var(--garret-600);
+        }
+        
+        .button-secondary {
+            display: inline-block;
+            background-color: white;
+            color: var(--garret-500);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid var(--garret-500);
+            cursor: pointer;
+        }
+        
+        .button-secondary:hover {
+            background-color: var(--garret-50);
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            transition: all 0.3s;
+        }
+        
+        .header-top {
+            background-color: var(--garret-500);
+            color: white;
+            padding: 0.5rem 0;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--garret-100);
+        }
+        
+        .contact-info i {
+            margin-right: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
+        
+        .scrolled nav {
+            padding: 0.75rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--garret-500);
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo svg {
+            margin-right: 0.5rem;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        .nav-links a {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--garret-500);
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--garret-50);
+            color: var(--garret-600);
+        }
+        
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--garret-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            background-color: var(--garret-50);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            z-index: 100;
+            padding-top: 4rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--garret-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+        
+        .mobile-links {
+            display: flex;
+            flex-direction: column;
+            padding: 0 1rem;
+        }
+        
+        .mobile-links a {
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--garret-500);
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .mobile-links a:hover {
+            background-color: var(--garret-50);
+            color: var(--garret-600);
+        }
+        
+        .mobile-contact {
+            margin-top: 1.5rem;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid var(--garret-100);
+        }
+        
+        .mobile-contact a, .mobile-contact div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--garret-500);
+            font-size: 0.875rem;
+        }
+        
+        .mobile-contact i {
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                gap: 0.25rem;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .header-top-content {
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--garret-500);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo svg {
+            margin-right: 0.5rem;
+            fill: white;
+        }
+        
+        .footer-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 25rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 1.125rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 0.25rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-icon {
+            font-size: 1rem;
+            padding-top: 0.125rem;
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* FAQ Page Specific Styles */
+        .faq-hero {
+            background-image: linear-gradient(rgba(7, 55, 99, 0.8), rgba(7, 55, 99, 0.8)), url('https://images.unsplash.com/photo-1565608583274-1cf41a5c2151?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 0 6rem;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-category {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--garret-50);
+            color: var(--garret-500);
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-category.active, .faq-category:hover {
+            background-color: var(--garret-500);
+            color: white;
+        }
+
+        .accordion {
+            margin-bottom: 1.5rem;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            background-color: white;
+        }
+
+        .accordion-header {
+            padding: 1.25rem 1.5rem;
+            background-color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: var(--garret-500);
+        }
+
+        .accordion-header:hover {
+            background-color: var(--garret-50);
+        }
+
+        .accordion-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: white;
+        }
+
+        .accordion-content-inner {
+            padding-bottom: 1.5rem;
+            color: var(--foreground);
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s;
+            font-size: 1.25rem;
+            color: var(--garret-500);
+        }
+
+        .accordion-item.active .accordion-header {
+            background-color: var(--garret-50);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .contact-cta {
+            background-color: var(--garret-50);
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-cta h3 {
+            font-size: 1.5rem;
+            color: var(--garret-500);
+            margin-bottom: 1rem;
+        }
+
+        .search-form {
+            margin-bottom: 2.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--garret-100);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--garret-500);
+            box-shadow: 0 0 0 3px rgba(7, 55, 99, 0.1);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--garret-500);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 49;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--garret-600);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="contact-info">
+                        <a href="mailto:invest@kishinvestmentpark.com">
+                            <i class="fas fa-envelope"></i>
+                            <span>invest@kishinvestmentpark.com</span>
+                        </a>
+                        <a href="tel:+97148823939">
+                            <i class="fas fa-phone"></i>
+                            <span>+971 4882 3939</span>
+                        </a>
+                        <a href="https://wa.me/971558881030">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+971 5588 81030</span>
+                        </a>
+                    </div>
+                    <div class="location-info">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="nav-content">
+                    <a href="index.html" class="logo">
+                        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L40 35H0L20 5Z" fill="#073763"/>
+                            <path d="M50 10H95V16H50V10Z" fill="#073763"/>
+                            <path d="M50 22H80V28H50V22Z" fill="#073763"/>
+                            <path d="M110 10H145V16H110V10Z" fill="#073763"/>
+                            <path d="M110 22H135V28H110V22Z" fill="#073763"/>
+                        </svg>
+                        <span>Kish Investment Park</span>
+                    </a>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="e-services.html">E-Services</a>
+                        <a href="payment-services.html">Payment Services</a>
+                        <a href="zones.html">Zones</a>
+                        <a href="facilities.html">Facilities</a>
+                        <a href="media.html">Media</a>
+                        <a href="faqs.html">FAQs</a>
+                        <a href="directory.html">Directory</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                    <button class="mobile-menu-btn" aria-label="Open menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="e-services.html">E-Services</a>
+            <a href="payment-services.html">Payment Services</a>
+            <a href="zones.html">Zones</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="media.html">Media</a>
+            <a href="faqs.html">FAQs</a>
+            <a href="directory.html">Directory</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="mobile-contact">
+            <a href="mailto:invest@kishinvestmentpark.com">
+                <i class="fas fa-envelope"></i>
+                <span>invest@kishinvestmentpark.com</span>
+            </a>
+            <a href="tel:+97148823939">
+                <i class="fas fa-phone"></i>
+                <span>+971 4882 3939</span>
+            </a>
+            <a href="https://wa.me/971558881030">
+                <i class="fab fa-whatsapp"></i>
+                <span>+971 5588 81030</span>
+            </a>
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="section-title reveal">Frequently Asked Questions</h1>
+                <p class="text-lg max-w-2xl mx-auto reveal reveal-delay-1">Find answers to common questions about Kish Investment Park, our facilities, services, and the investment process.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content Section -->
+    <section class="section-padding">
+        <div class="container faq-container">
+            <div class="search-form reveal">
+                <input type="text" id="faqSearch" class="search-input" placeholder="Search for your question...">
+            </div>
+            
+            <div class="faq-categories reveal reveal-delay-1">
+                <div class="faq-category active" data-category="all">All Questions</div>
+                <div class="faq-category" data-category="general">General Information</div>
+                <div class="faq-category" data-category="investment">Investment Process</div>
+                <div class="faq-category" data-category="facilities">Facilities & Infrastructure</div>
+                <div class="faq-category" data-category="business">Business Setup</div>
+                <div class="faq-category" data-category="visa">Visa & Immigration</div>
+            </div>
+            
+            <div class="accordion reveal reveal-delay-2">
+                <!-- General Information -->
+                <div class="accordion-item" data-category="general">
+                    <div class="accordion-header">
+                        <span>What is Kish Investment Park?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Kish Investment Park is a special economic zone designed to attract both local and international investments. We provide state-of-the-art infrastructure, facilities, and business services to help companies establish and grow their operations efficiently. The park is strategically located with excellent connectivity to major transportation networks and business hubs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-category="general">
+                    <div class="accordion-header">
+                        <span>Where is Kish Investment Park located?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Kish Investment Park is located on Kish Island in the Persian Gulf. Our administrative office is in Dubai, UAE at Burj Khalifa, 1903. The strategic location of Kish Island provides excellent access to international markets via air and sea routes, making it an ideal hub for regional and global business operations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-category="general">
+                    <div class="accordion-header">
+                        <span>What industries are present in Kish Investment Park?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Kish Investment Park hosts a diverse range of industries, including but not limited to:</p>
+                            <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
+                                <li>Manufacturing and industrial production</li>
+                                <li>Technology and IT services</li>
+                                <li>Logistics and supply chain operations</li>
+                                <li>Trading and commercial activities</li>
+                                <li>Financial services</li>
+                                <li>Healthcare and pharmaceuticals</li>
+                                <li>Food processing and packaging</li>
+                                <li>Renewable energy</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Our specialized zones cater to the specific needs of different industries, providing tailored infrastructure and services.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Investment Process -->
+                <div class="accordion-item" data-category="investment">
+                    <div class="accordion-header">
+                        <span>What are the advantages of investing in Kish Investment Park?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Investing in Kish Investment Park offers numerous advantages:</p>
+                            <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
+                                <li>Tax incentives including corporate tax exemptions</li>
+                                <li>100% foreign ownership allowed</li>
+                                <li>Streamlined business setup procedures</li>
+                                <li>State-of-the-art infrastructure and facilities</li>
+                                <li>Strategic location with excellent connectivity</li>
+                                <li>Access to skilled workforce</li>
+                                <li>Simplified customs procedures</li>
+                                <li>Competitive utility and operational costs</li>
+                                <li>Comprehensive business support services</li>
+                                <li>Modern lifestyle amenities for staff and executives</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-category="investment">
+                    <div class="accordion-header">
+                        <span>What is the process for setting up a business in Kish Investment Park?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>The process for setting up a business in Kish Investment Park involves the following steps:</p>
+                            <ol style="list-style-type: decimal; margin-left: 20px; margin-top: 10px;">
+                                <li>Initial consultation with our investment advisors</li>
+                                <li>Submission of application and required documents</li>
+                                <li>Business plan evaluation and approval</li>
+                                <li>Facility/space allocation and lease agreement</li>
+                                <li>Company registration and license issuance</li>
+                                <li>Visa processing for key personnel</li>
+                                <li>Utilities connection and operational setup</li>
+                            </ol>
+                            <p style="margin-top: 10px;">Our dedicated business setup team provides comprehensive support throughout this process, ensuring a smooth and efficient establishment of your operations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-category="investment">
+                    <div class="accordion-header">
+                        <span>What types of licenses are available at Kish Investment Park?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Kish Investment Park offers various types of licenses to suit different business activities:</p>
+                            <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
+                                <li><strong>Industrial License:</strong> For manufacturing and production activities</li>
+                                <li><strong>Trading License:</strong> For import, export, and local trading operations</li>
+                                <li><strong>Service License:</strong> For service-based businesses across various sectors</li>
+                                <li><strong>Logistics License:</strong> For warehousing, distribution, and supply chain operations</li>
+                                <li><strong>Consultancy License:</strong> For professional consulting services</li>
+                                <li><strong>Holding Company License:</strong> For investment and holding activities</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Each license type has specific eligibility criteria and benefits. Our advisors can help determine the most suitable license for your business operations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Facilities & Infrastructure -->
+                <div class="accordion-item" data-category="facilities">
+                    <div class="accordion-header">
+                        <span>What facilities are available at Kish Investment Park?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Kish Investment Park offers comprehensive facilities including:</p>
+                            <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
+                                <li>Modern factory units with flexible layouts</li>
+                                <li>Warehousing solutions with temperature control options</li>
+                                <li>Logistics center with multimodal transport connections</li>
+                                <li>Business center with offices and meeting facilities</li>
+                                <li>Data center with high-bandwidth connectivity</li>
+                                <li>Comprehensive security services</li>
+                                <li>Amenities center with dining and retail options</li>
+                                <li>Health and recreation facilities</li>
+                                <li>Customs processing center</li>
+                                <li>Utility services including power, water, and waste management</li>
+                            </ul>
+                            <p style="margin-top: 10px;">All facilities are built to international standards and designed to maximize operational efficiency for businesses of all sizes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-category="facilities">
+                    <div class="accordion-header">
+                        <span>What size options are available for factory units and warehouses?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Our factory units and warehouses come in various sizes to accommodate different business needs:</p>
+                            <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
+                                <li><strong>Factory Units:</strong> Available from 1,000 to 10,000 square meters, with options for customization</li>
+                                <li><strong>Warehouses:</strong> Available from 500 to 5,000 square meters, with standard and temperature-controlled options</li>
+                                <li><strong>Office Spaces:</strong> Available from 50 to 500 square meters, with options for private offices and open-plan layouts</li>
+                            </ul>
+                            <p style="margin-top: 10px;">We also offer build-to-suit

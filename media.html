@@ -1,0 +1,1268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - Kish Investment Park</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --garret-50: #f1f5f9;
+            --garret-100: #e2e8f0;
+            --garret-400: #64748b;
+            --garret-500: #073763;
+            --garret-600: #052a4e;
+            --background: #ffffff;
+            --foreground: #333333;
+            --muted-foreground: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background-color: var(--background);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .button-primary {
+            display: inline-block;
+            background-color: var(--garret-500);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button-primary:hover {
+            background-color: var(--garret-600);
+        }
+        
+        .button-secondary {
+            display: inline-block;
+            background-color: white;
+            color: var(--garret-500);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid var(--garret-500);
+            cursor: pointer;
+        }
+        
+        .button-secondary:hover {
+            background-color: var(--garret-50);
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            transition: all 0.3s;
+        }
+        
+        .header-top {
+            background-color: var(--garret-500);
+            color: white;
+            padding: 0.5rem 0;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--garret-100);
+        }
+        
+        .contact-info i {
+            margin-right: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
+        
+        .scrolled nav {
+            padding: 0.75rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--garret-500);
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo svg {
+            margin-right: 0.5rem;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        .nav-links a {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--garret-500);
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--garret-50);
+            color: var(--garret-600);
+        }
+        
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--garret-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            background-color: var(--garret-50);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            z-index: 100;
+            padding-top: 4rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--garret-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+        
+        .mobile-links {
+            display: flex;
+            flex-direction: column;
+            padding: 0 1rem;
+        }
+        
+        .mobile-links a {
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--garret-500);
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .mobile-links a:hover {
+            background-color: var(--garret-50);
+            color: var(--garret-600);
+        }
+        
+        .mobile-contact {
+            margin-top: 1.5rem;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid var(--garret-100);
+        }
+        
+        .mobile-contact a, .mobile-contact div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--garret-500);
+            font-size: 0.875rem;
+        }
+        
+        .mobile-contact i {
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                gap: 0.25rem;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .header-top-content {
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--garret-500);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo svg {
+            margin-right: 0.5rem;
+            fill: white;
+        }
+        
+        .footer-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 25rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 1.125rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 0.25rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-icon {
+            font-size: 1rem;
+            padding-top: 0.125rem;
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Media Page Specific Styles */
+        .media-hero {
+            background-image: linear-gradient(rgba(7, 55, 99, 0.8), rgba(7, 55, 99, 0.8)), url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 0 6rem;
+        }
+
+        .media-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .media-tab {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--garret-50);
+            color: var(--garret-500);
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .media-tab.active, .media-tab:hover {
+            background-color: var(--garret-500);
+            color: white;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+
+        .media-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .media-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .media-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .media-content {
+            padding: 1.5rem;
+        }
+
+        .media-date {
+            display: inline-block;
+            font-size: 0.875rem;
+            color: var(--garret-400);
+            margin-bottom: 0.5rem;
+        }
+
+        .media-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--garret-500);
+        }
+
+        .media-desc {
+            margin-bottom: 1.5rem;
+            color: var(--muted-foreground);
+        }
+
+        .press-item {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .press-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--garret-500);
+        }
+
+        .press-source {
+            color: var(--garret-400);
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .press-desc {
+            margin-bottom: 1rem;
+        }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 1.5rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 80vh;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            .media-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .media-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--garret-500);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 49;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--garret-600);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="contact-info">
+                        <a href="mailto:invest@kishinvestmentpark.com">
+                            <i class="fas fa-envelope"></i>
+                            <span>invest@kishinvestmentpark.com</span>
+                        </a>
+                        <a href="tel:+97148823939">
+                            <i class="fas fa-phone"></i>
+                            <span>+971 4882 3939</span>
+                        </a>
+                        <a href="https://wa.me/971558881030">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+971 5588 81030</span>
+                        </a>
+                    </div>
+                    <div class="location-info">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="nav-content">
+                    <a href="index.html" class="logo">
+                        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L40 35H0L20 5Z" fill="#073763"/>
+                            <path d="M50 10H95V16H50V10Z" fill="#073763"/>
+                            <path d="M50 22H80V28H50V22Z" fill="#073763"/>
+                            <path d="M110 10H145V16H110V10Z" fill="#073763"/>
+                            <path d="M110 22H135V28H110V22Z" fill="#073763"/>
+                        </svg>
+                        <span>Kish Investment Park</span>
+                    </a>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="e-services.html">E-Services</a>
+                        <a href="payment-services.html">Payment Services</a>
+                        <a href="zones.html">Zones</a>
+                        <a href="facilities.html">Facilities</a>
+                        <a href="media.html">Media</a>
+                        <a href="faqs.html">FAQs</a>
+                        <a href="directory.html">Directory</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                    <button class="mobile-menu-btn" aria-label="Open menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="e-services.html">E-Services</a>
+            <a href="payment-services.html">Payment Services</a>
+            <a href="zones.html">Zones</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="media.html">Media</a>
+            <a href="faqs.html">FAQs</a>
+            <a href="directory.html">Directory</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="mobile-contact">
+            <a href="mailto:invest@kishinvestmentpark.com">
+                <i class="fas fa-envelope"></i>
+                <span>invest@kishinvestmentpark.com</span>
+            </a>
+            <a href="tel:+97148823939">
+                <i class="fas fa-phone"></i>
+                <span>+971 4882 3939</span>
+            </a>
+            <a href="https://wa.me/971558881030">
+                <i class="fab fa-whatsapp"></i>
+                <span>+971 5588 81030</span>
+            </a>
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="media-hero">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="section-title reveal">Media Center</h1>
+                <p class="text-lg max-w-2xl mx-auto reveal reveal-delay-1">Stay updated with the latest news, events, and resources from Kish Investment Park.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Content Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="media-tabs reveal">
+                <div class="media-tab active" data-tab="news">News & Updates</div>
+                <div class="media-tab" data-tab="press">Press Releases</div>
+                <div class="media-tab" data-tab="gallery">Photo Gallery</div>
+                <div class="media-tab" data-tab="videos">Videos</div>
+                <div class="media-tab" data-tab="downloads">Downloads</div>
+            </div>
+
+            <!-- News Tab -->
+            <div class="tab-content active" id="news-tab">
+                <div class="media-grid reveal reveal-delay-1">
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="New Investment Opportunities" class="media-image">
+                        <div class="media-content">
+                            <span class="media-date">June 15, 2023</span>
+                            <h3 class="media-title">New Investment Opportunities in Technology Zone</h3>
+                            <p class="media-desc">Kish Investment Park announces new investment opportunities in its Technology Zone, offering state-of-the-art facilities...</p>
+                            <a href="#" class="button-primary">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="International Trade Conference" class="media-image">
+                        <div class="media-content">
+                            <span class="media-date">May 23, 2023</span>
+                            <h3 class="media-title">International Trade Conference to be Hosted in Kish</h3>
+                            <p class="media-desc">Kish Investment Park will host the annual International Trade Conference, bringing together business leaders...</p>
+                            <a href="#" class="button-primary">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Strategic Partnership" class="media-image">
+                        <div class="media-content">
+                            <span class="media-date">April 10, 2023</span>
+                            <h3 class="media-title">Strategic Partnership with Global Logistics Provider</h3>
+                            <p class="media-desc">Kish Investment Park has entered into a strategic partnership with a leading global logistics provider to enhance...</p>
+                            <a href="#" class="button-primary">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Sustainability Initiative" class="media-image">
+                        <div class="media-content">
+                            <span class="media-date">March 5, 2023</span>
+                            <h3 class="media-title">Sustainability Initiative Launched at Kish Investment Park</h3>
+                            <p class="media-desc">A new sustainability initiative has been launched at Kish Investment Park, focusing on renewable energy and...</p>
+                            <a href="#" class="button-primary">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="New Infrastructure Development" class="media-image">
+                        <div class="media-content">
+                            <span class="media-date">February 18, 2023</span>
+                            <h3 class="media-title">New Infrastructure Development at Manufacturing Zone</h3>
+                            <p class="media-desc">Kish Investment Park announces a significant infrastructure development project at its Manufacturing Zone...</p>
+                            <a href="#" class="button-primary">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Investor Conference" class="media-image">
+                        <div class="media-content">
+                            <span class="media-date">January 12, 2023</span>
+                            <h3 class="media-title">Annual Investor Conference Showcases Growth Opportunities</h3>
+                            <p class="media-desc">The annual Investor Conference held at Kish Investment Park showcased numerous growth opportunities across...</p>
+                            <a href="#" class="button-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12 reveal reveal-delay-2">
+                    <a href="#" class="button-primary">View All News</a>
+                </div>
+            </div>
+
+            <!-- Press Releases Tab -->
+            <div class="tab-content" id="press-tab">
+                <div class="reveal reveal-delay-1">
+                    <div class="press-item">
+                        <h3 class="press-title">Kish Investment Park Signs MOU with European Business Association</h3>
+                        <p class="press-source">Published in: Dubai Business Journal - July 5, 2023</p>
+                        <p class="press-desc">Kish Investment Park has signed a Memorandum of Understanding with the European Business Association to facilitate investment and business collaboration between European companies and the investment park.</p>
+                        <a href="#" class="button-primary">Read Full Press Release</a>
+                    </div>
+                    
+                    <div class="press-item">
+                        <h3 class="press-title">Kish Investment Park Announces Expansion of Logistics Zone</h3>
+                        <p class="press-source">Published in: Global Trade Review - June 22, 2023</p>
+                        <p class="press-desc">Kish Investment Park today announced the expansion of its Logistics Zone, adding 50,000 square meters of warehousing space to meet increasing demand from global shipping and logistics companies.</p>
+                        <a href="#" class="button-primary">Read Full Press Release</a>
+                    </div>
+                    
+                    <div class="press-item">
+                        <h3 class="press-title">New Tax Incentives for Technology Companies at Kish Investment Park</h3>
+                        <p class="press-source">Published in: Tech Investment Weekly - May 14, 2023</p>
+                        <p class="press-desc">The government has approved new tax incentives for technology companies operating within Kish Investment Park, offering significant reductions in corporate tax rates for qualifying businesses.</p>
+                        <a href="#" class="button-primary">Read Full Press Release</a>
+                    </div>
+                    
+                    <div class="press-item">
+                        <h3 class="press-title">Kish Investment Park Receives Award for Infrastructure Excellence</h3>
+                        <p class="press-source">Published in: Infrastructure Today - April 30, 2023</p>
+                        <p class="press-desc">Kish Investment Park has been recognized with the prestigious Infrastructure Excellence Award for its state-of-the-art facilities and sustainable infrastructure development practices.</p>
+                        <a href="#" class="button-primary">Read Full Press Release</a>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12 reveal reveal-delay-2">
+                    <a href="#" class="button-primary">View All Press Releases</a>
+                </div>
+            </div>
+
+            <!-- Gallery Tab -->
+            <div class="tab-content" id="gallery-tab">
+                <div class="gallery-grid reveal reveal-delay-1">
+                    <div class="gallery-item" data-img="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Business District" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Business District</h3>
+                            <p>The modern business district at Kish Investment Park</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-img="https://images.unsplash.com/photo-1537644345918-a89a3a8812eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+                        <img src="https://images.unsplash.com/photo-1537644345918-a89a3a8812eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Manufacturing Zone" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Manufacturing Zone</h3>
+                            <p>State-of-the-art facilities in our Manufacturing Zone</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-img="https://images.unsplash.com/photo-1510146758428-e5e4b17b8b6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+                        <img src="https://images.unsplash.com/photo-1510146758428-e5e4b17b8b6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Logistics Hub" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Logistics Hub</h3>
+                            <p>Our comprehensive logistics facilities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-img="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Technology Park" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Technology Park</h3>
+                            <p>Innovation center at our Technology Park</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-img="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Business Meeting" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Business Meeting</h3>
+                            <p>International business conference held at Kish</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Trade Exhibition" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Trade Exhibition</h3>
+                            <p>Annual international trade exhibition</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Videos Tab -->
+            <div class="tab-content" id="videos-tab">
+                <div class="reveal reveal-delay-1">
+                    <h2 class="text-2xl font-semibold mb-6">Featured Videos</h2>
+                    
+                    <div class="mb-12">
+                        <h3 class="text-xl mb-4">Kish Investment Park Overview</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mt-12">
+                        <div>
+                            <h3 class="text-xl mb-4">Manufacturing Zone Tour</h3>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl mb-4">Investor Testimonials</h3>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl mb-4">Logistics Hub Capabilities</h3>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl mb-4">Technology Park Innovation</h3>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Downloads Tab -->
+            <div class="tab-content" id="downloads-tab">
+                <div class="reveal reveal-delay-1">
+                    <h2 class="text-2xl font-semibold mb-6">Resources & Downloads</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="card hover:shadow-lg transition-shadow">
+                            <h3 class="text-xl text-garret-500 mb-3">Investor Brochure</h3>
+                            <p class="mb-5">Comprehensive information about investment opportunities at Kish Investment Park.</p>
+                            <a href="#" class="button-primary">Download PDF (2.5 MB)</a>
+                        </div>
+                        
+                        <div class="card hover:shadow-lg transition-shadow">
+                            <h3 class="text-xl text-garret-500 mb-3">Zone Maps</h3>
+                            <p class="mb-5">Detailed maps of each zone within Kish Investment Park.</p>
+                            <a href="#" class="button-primary">Download PDF (3.8 MB)</a>
+                        </div>
+                        
+                        <div class="card hover:shadow-lg transition-shadow">
+                            <h3 class="text-xl text-garret-500 mb-3">Facility Specifications</h3>
+                            <p class="mb-5">Technical specifications of facilities and infrastructure available.</p>
+                            <a href="#" class="button-primary">Download PDF (1.2 MB)</a>
+                        </div>
+                        
+                        <div class="card hover:shadow-lg transition-shadow">
+                            <h3 class="text-xl text-garret-500 mb-3">Annual Report 2022</h3>
+                            <p class="mb-5">Financial performance and development highlights for the year 2022.</p>
+                            <a href="#" class="button-primary">Download PDF (5.7 MB)</a>
+                        </div>
+                        
+                        <div class="card hover:shadow-lg transition-shadow">
+                            <h3 class="text-xl text-garret-500 mb-3">Investment Guide</h3>
+                            <p class="mb-5">Step-by-step guide to investing in Kish Investment Park.</p>
+                            <a href="#" class="button-primary">Download PDF (1.8 MB)</a>
+                        </div>
+                        
+                        <div class="card hover:shadow-lg transition-shadow">
+                            <h3 class="text-xl text-garret-500 mb-3">Legal Framework</h3>
+                            <p class="mb-5">Overview of the legal and regulatory framework for businesses.</p>
+                            <a href="#" class="button-primary">Download PDF (2.1 MB)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="" class="lightbox-img">
+    </div>
+
+    <!-- Subscribe Section -->
+    <section class="section-padding" style="background-color: var(--garret-50);">
+        <div class="container">
+            <div class="text-center mb-8 reveal">
+                <h2 class="section-title">Stay Updated</h2>
+                <p class="section-subtitle mx-auto">Subscribe to our newsletter to receive the latest news and updates from Kish Investment Park.</p>
+            </div>
+            
+            <div class="max-w-lg mx-auto reveal reveal-delay-1">
+                <form class="flex flex-col md:flex-row gap-4">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-md border border-garret-100 focus:outline-none focus:border-garret-500">
+                    <button type="submit" class="button-primary whitespace-nowrap">Subscribe Now</button>
+                </form>
+                <p class="text-sm text-center mt-4 text-garret-400">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L40 35H0L20 5Z" fill="white"/>
+                            <path d="M50 10H95V16H50V10Z" fill="white"/>
+                            <path d="M50 22H80V28H50V22Z" fill="white"/>
+                            <path d="M110 10H145V16H110V10Z" fill="white"/>
+                            <path d="M110 22H135V28H110V22Z" fill="white"/>
+                        </svg>
+                        <span>Kish Investment Park</span>
+                    </div>
+                    <p class="footer-description">
+                        Since our establishment, Kish Investment Park has been a cornerstone of industrial development and international trade in the region.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="zones.html">Zones</a>
+                        <a href="facilities.html">Facilities</a>
+                        <a href="e-services.html">E-Services</a>
+                        <a href="faqs.html">FAQs</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Services</h3>
+                    <div class="footer-links">
+                        <a href="#">Business Setup</a>
+                        <a href="#">Visa Services</a>
+                        <a href="#">Logistics Solutions</a>
+                        <a href="#">Trade Financing</a>
+                        <a href="#">Consultancy</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Contact</h3>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            1903-Burj Khalifa,<br>
+                            Dubai, U.A.E.
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <a href="tel:+97148823939">+971 4882 3939</a><br>
+                            <a href="https://wa.me/971558881030">WhatsApp: +971 5588 81030</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <a href="mailto:invest@kishinvestmentpark.com">invest@kishinvestmentpark.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kish Investment Park. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Handle Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuCloseBtn = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuCloseBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        // Handle header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Handle scroll reveal animations
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        function checkReveal() {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Handle tabs
+        const tabs = document.querySelectorAll('.media-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all tab contents
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Show corresponding tab content
+                const tabName = tab.getAttribute('data-tab');
+                document.getElementById(`${tabName}-tab`).classList.add('active');
+            });
+        });
+
+        // Handle gallery lightbox
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImg = document.querySelector('.lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.getAttribute('data-img');
+                lightboxImg.setAttribute('src', imgSrc);
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

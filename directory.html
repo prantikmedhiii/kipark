@@ -1,0 +1,1367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory - Kish Investment Park</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --garret-50: #f1f5f9;
+            --garret-100: #e2e8f0;
+            --garret-400: #64748b;
+            --garret-500: #073763;
+            --garret-600: #052a4e;
+            --background: #ffffff;
+            --foreground: #333333;
+            --muted-foreground: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background-color: var(--background);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .button-primary {
+            display: inline-block;
+            background-color: var(--garret-500);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button-primary:hover {
+            background-color: var(--garret-600);
+        }
+        
+        .button-secondary {
+            display: inline-block;
+            background-color: white;
+            color: var(--garret-500);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid var(--garret-500);
+            cursor: pointer;
+        }
+        
+        .button-secondary:hover {
+            background-color: var(--garret-50);
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            transition: all 0.3s;
+        }
+        
+        .header-top {
+            background-color: var(--garret-500);
+            color: white;
+            padding: 0.5rem 0;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--garret-100);
+        }
+        
+        .contact-info i {
+            margin-right: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
+        
+        .scrolled nav {
+            padding: 0.75rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--garret-500);
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo svg {
+            margin-right: 0.5rem;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        .nav-links a {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--garret-500);
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--garret-50);
+            color: var(--garret-600);
+        }
+        
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--garret-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            background-color: var(--garret-50);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            z-index: 100;
+            padding-top: 4rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--garret-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+        
+        .mobile-links {
+            display: flex;
+            flex-direction: column;
+            padding: 0 1rem;
+        }
+        
+        .mobile-links a {
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--garret-500);
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .mobile-links a:hover {
+            background-color: var(--garret-50);
+            color: var(--garret-600);
+        }
+        
+        .mobile-contact {
+            margin-top: 1.5rem;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid var(--garret-100);
+        }
+        
+        .mobile-contact a, .mobile-contact div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--garret-500);
+            font-size: 0.875rem;
+        }
+        
+        .mobile-contact i {
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                gap: 0.25rem;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .header-top-content {
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--garret-500);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo svg {
+            margin-right: 0.5rem;
+            fill: white;
+        }
+        
+        .footer-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 25rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 1.125rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 0.25rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-icon {
+            font-size: 1rem;
+            padding-top: 0.125rem;
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Directory Page Specific Styles */
+        .directory-hero {
+            background-image: linear-gradient(rgba(7, 55, 99, 0.8), rgba(7, 55, 99, 0.8)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 0 6rem;
+        }
+
+        .directory-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .search-filters {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--garret-100);
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--garret-500);
+            box-shadow: 0 0 0 3px rgba(7, 55, 99, 0.1);
+        }
+
+        .filter-select {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--garret-100);
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--garret-500);
+            box-shadow: 0 0 0 3px rgba(7, 55, 99, 0.1);
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .business-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .business-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .business-logo {
+            height: 160px;
+            background-color: var(--garret-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .business-logo img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .business-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .business-category {
+            display: inline-block;
+            background-color: var(--garret-50);
+            color: var(--garret-500);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .business-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--garret-500);
+        }
+
+        .business-desc {
+            color: var(--muted-foreground);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .business-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .contact-item i {
+            width: 1.5rem;
+            color: var(--garret-500);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .page-item {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            background-color: white;
+            border: 1px solid var(--garret-100);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-item:hover, .page-item.active {
+            background-color: var(--garret-500);
+            color: white;
+            border-color: var(--garret-500);
+        }
+
+        .alphabet-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .alphabet-item {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            background-color: white;
+            border: 1px solid var(--garret-100);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .alphabet-item:hover, .alphabet-item.active {
+            background-color: var(--garret-500);
+            color: white;
+            border-color: var(--garret-500);
+        }
+
+        .featured-businesses {
+            margin-bottom: 3rem;
+        }
+
+        .featured-tag {
+            display: inline-flex;
+            align-items: center;
+            background-color: #ffd700;
+            color: #333;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+        }
+
+        .featured-tag i {
+            margin-right: 0.25rem;
+        }
+
+        .directory-empty {
+            text-align: center;
+            padding: 3rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .directory-empty i {
+            font-size: 3rem;
+            color: var(--garret-400);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .filter-row {
+                flex-direction: row;
+            }
+            
+            .directory-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .directory-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--garret-500);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 49;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--garret-600);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="contact-info">
+                        <a href="mailto:invest@kishinvestmentpark.com">
+                            <i class="fas fa-envelope"></i>
+                            <span>invest@kishinvestmentpark.com</span>
+                        </a>
+                        <a href="tel:+97148823939">
+                            <i class="fas fa-phone"></i>
+                            <span>+971 4882 3939</span>
+                        </a>
+                        <a href="https://wa.me/971558881030">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+971 5588 81030</span>
+                        </a>
+                    </div>
+                    <div class="location-info">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="nav-content">
+                    <a href="index.html" class="logo">
+                        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L40 35H0L20 5Z" fill="#073763"/>
+                            <path d="M50 10H95V16H50V10Z" fill="#073763"/>
+                            <path d="M50 22H80V28H50V22Z" fill="#073763"/>
+                            <path d="M110 10H145V16H110V10Z" fill="#073763"/>
+                            <path d="M110 22H135V28H110V22Z" fill="#073763"/>
+                        </svg>
+                        <span>Kish Investment Park</span>
+                    </a>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="e-services.html">E-Services</a>
+                        <a href="payment-services.html">Payment Services</a>
+                        <a href="zones.html">Zones</a>
+                        <a href="facilities.html">Facilities</a>
+                        <a href="media.html">Media</a>
+                        <a href="faqs.html">FAQs</a>
+                        <a href="directory.html">Directory</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                    <button class="mobile-menu-btn" aria-label="Open menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="e-services.html">E-Services</a>
+            <a href="payment-services.html">Payment Services</a>
+            <a href="zones.html">Zones</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="media.html">Media</a>
+            <a href="faqs.html">FAQs</a>
+            <a href="directory.html">Directory</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="mobile-contact">
+            <a href="mailto:invest@kishinvestmentpark.com">
+                <i class="fas fa-envelope"></i>
+                <span>invest@kishinvestmentpark.com</span>
+            </a>
+            <a href="tel:+97148823939">
+                <i class="fas fa-phone"></i>
+                <span>+971 4882 3939</span>
+            </a>
+            <a href="https://wa.me/971558881030">
+                <i class="fab fa-whatsapp"></i>
+                <span>+971 5588 81030</span>
+            </a>
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="directory-hero">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="section-title reveal">Business Directory</h1>
+                <p class="text-lg max-w-2xl mx-auto reveal reveal-delay-1">Discover the diverse range of businesses operating within Kish Investment Park.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directory Content Section -->
+    <section class="section-padding">
+        <div class="container directory-container">
+            <!-- Search and Filter -->
+            <div class="search-filters reveal">
+                <div class="filter-row">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search by business name, keyword, or service...">
+                    <button class="button-primary" id="searchButton">Search</button>
+                </div>
+                <div class="filter-row">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="technology">Technology & IT</option>
+                        <option value="logistics">Logistics & Transportation</option>
+                        <option value="trading">Trading & Commerce</option>
+                        <option value="financial">Financial Services</option>
+                        <option value="healthcare">Healthcare & Pharmaceuticals</option>
+                        <option value="food">Food & Beverage</option>
+                        <option value="energy">Energy & Utilities</option>
+                    </select>
+                    <select class="filter-select" id="zoneFilter">
+                        <option value="">All Zones</option>
+                        <option value="industrial">Industrial Zone</option>
+                        <option value="technology">Technology Park</option>
+                        <option value="logistics">Logistics Zone</option>
+                        <option value="commercial">Commercial Zone</option>
+                        <option value="free">Free Zone</option>
+                    </select>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="category">Category</option>
+                        <option value="featured">Featured First</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Alphabet Filter -->
+            <div class="alphabet-filter reveal reveal-delay-1">
+                <div class="alphabet-item active" data-letter="all">All</div>
+                <div class="alphabet-item" data-letter="a">A</div>
+                <div class="alphabet-item" data-letter="b">B</div>
+                <div class="alphabet-item" data-letter="c">C</div>
+                <div class="alphabet-item" data-letter="d">D</div>
+                <div class="alphabet-item" data-letter="e">E</div>
+                <div class="alphabet-item" data-letter="f">F</div>
+                <div class="alphabet-item" data-letter="g">G</div>
+                <div class="alphabet-item" data-letter="h">H</div>
+                <div class="alphabet-item" data-letter="i">I</div>
+                <div class="alphabet-item" data-letter="j">J</div>
+                <div class="alphabet-item" data-letter="k">K</div>
+                <div class="alphabet-item" data-letter="l">L</div>
+                <div class="alphabet-item" data-letter="m">M</div>
+                <div class="alphabet-item" data-letter="n">N</div>
+                <div class="alphabet-item" data-letter="o">O</div>
+                <div class="alphabet-item" data-letter="p">P</div>
+                <div class="alphabet-item" data-letter="q">Q</div>
+                <div class="alphabet-item" data-letter="r">R</div>
+                <div class="alphabet-item" data-letter="s">S</div>
+                <div class="alphabet-item" data-letter="t">T</div>
+                <div class="alphabet-item" data-letter="u">U</div>
+                <div class="alphabet-item" data-letter="v">V</div>
+                <div class="alphabet-item" data-letter="w">W</div>
+                <div class="alphabet-item" data-letter="x">X</div>
+                <div class="alphabet-item" data-letter="y">Y</div>
+                <div class="alphabet-item" data-letter="z">Z</div>
+            </div>
+            
+            <!-- Featured Businesses -->
+            <div class="featured-businesses">
+                <h2 class="text-2xl font-semibold mb-6 reveal reveal-delay-2">Featured Businesses</h2>
+                <div class="directory-grid" id="featuredBusinesses">
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=TechSolutions" alt="TechSolutions">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Technology & IT</span>
+                            <h3 class="business-name">TechSolutions International <span class="featured-tag"><i class="fas fa-star"></i> Featured</span></h3>
+                            <p class="business-desc">Leading provider of innovative technology solutions, specializing in software development, IoT solutions, and digital transformation services.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Technology Park, Building T3</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 123 4567</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.techsolutions.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=GlobalLogistics" alt="GlobalLogistics">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Logistics & Transportation</span>
+                            <h3 class="business-name">Global Logistics Solutions <span class="featured-tag"><i class="fas fa-star"></i> Featured</span></h3>
+                            <p class="business-desc">Comprehensive logistics and supply chain management services with global reach, serving businesses of all sizes across multiple industries.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Logistics Zone, Building L7</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 234 5678</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.globallogistics.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=PrecisionManufacturing" alt="PrecisionManufacturing">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Manufacturing</span>
+                            <h3 class="business-name">Precision Manufacturing Co. <span class="featured-tag"><i class="fas fa-star"></i> Featured</span></h3>
+                            <p class="business-desc">State-of-the-art manufacturing facility producing high-precision components for aerospace, automotive, and industrial applications.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Industrial Zone, Building I12</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 345 6789</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.precisionmfg.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- All Businesses -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-6 reveal reveal-delay-3">All Businesses</h2>
+                <div class="directory-grid" id="allBusinesses">
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=AceTrading" alt="AceTrading">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Trading & Commerce</span>
+                            <h3 class="business-name">Ace Trading Company</h3>
+                            <p class="business-desc">International trading company specializing in commodities, consumer goods, and industrial products with strong global partnerships.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Commercial Zone, Building C5</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 456 7890</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.acetrading.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=BioPharm" alt="BioPharm">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Healthcare & Pharmaceuticals</span>
+                            <h3 class="business-name">BioPharm Laboratories</h3>
+                            <p class="business-desc">Research-driven pharmaceutical company developing innovative treatments and medical solutions for global health challenges.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Industrial Zone, Building I8</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 567 8901</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.biopharm.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=CyberSec" alt="CyberSec">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Technology & IT</span>
+                            <h3 class="business-name">CyberSec Solutions</h3>
+                            <p class="business-desc">Cybersecurity company providing advanced security solutions, threat intelligence, and managed security services for businesses.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Technology Park, Building T1</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 678 9012</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.cybersec.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=DesertEnergy" alt="DesertEnergy">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Energy & Utilities</span>
+                            <h3 class="business-name">Desert Energy Solutions</h3>
+                            <p class="business-desc">Renewable energy company specializing in solar power systems, sustainable energy solutions, and energy efficiency consulting.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Industrial Zone, Building I5</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 789 0123</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.desertenergy.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=EcoFoods" alt="EcoFoods">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Food & Beverage</span>
+                            <h3 class="business-name">Eco Foods Processing</h3>
+                            <p class="business-desc">Sustainable food processing company producing organic food products, healthy snacks, and plant-based alternatives.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Industrial Zone, Building I23</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 890 1234</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.ecofoods.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo">
+                            <img src="https://via.placeholder.com/200x200/eee?text=FinancePro" alt="FinancePro">
+                        </div>
+                        <div class="business-content">
+                            <span class="business-category">Financial Services</span>
+                            <h3 class="business-name">Finance Pro Advisors</h3>
+                            <p class="business-desc">Financial advisory firm offering comprehensive services including investment management, corporate finance, and wealth planning.</p>
+                            <div class="business-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Commercial Zone, Building C8</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+971 4 901 2345</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span><a href="#">www.financepro.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination reveal reveal-delay-4">
+                    <div class="page-item active">1</div>
+                    <div class="page-item">2</div>
+                    <div class="page-item">3</div>
+                    <div class="page-item">4</div>
+                    <div class="page-item">5</div>
+                    <div class="page-item"><i class="fas fa-ellipsis-h"></i></div>
+                    <div class="page-item">10</div>
+                    <div class="page-item"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directory Registration Section -->
+    <section class="section-padding" style="background-color: var(--garret-50);">
+        <div class="container">
+            <div class="text-center mb-8 reveal">
+                <h2 class="text-3xl font-bold text-garret-500 mb-4">List Your Business</h2>
+                <p class="max-w-3xl mx-auto text-lg text-muted-foreground">Are you operating a business in Kish Investment Park? Add your company to our directory to increase visibility and connect with potential customers and partners.</p>
+            </div>
+            
+            <div class="text-center reveal reveal-delay-1">
+                <a href="contact.html" class="button-primary">Submit Your Business</a>
+                <a href="faqs.html" class="button-secondary ml-4">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L40 35H0L20 5Z" fill="white"/>
+                            <path d="M50 10H95V16H50V10Z" fill="white"/>
+                            <path d="M50 22H80V28H50V22Z" fill="white"/>
+                            <path d="M110 10H145V16H110V10Z" fill="white"/>
+                            <path d="M110 22H135V28H110V22Z" fill="white"/>
+                        </svg>
+                        <span>Kish Investment Park</span>
+                    </div>
+                    <p class="footer-description">
+                        Since our establishment, Kish Investment Park has been a cornerstone of industrial development and international trade in the region.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="zones.html">Zones</a>
+                        <a href="facilities.html">Facilities</a>
+                        <a href="e-services.html">E-Services</a>
+                        <a href="faqs.html">FAQs</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Services</h3>
+                    <div class="footer-links">
+                        <a href="#">Business Setup</a>
+                        <a href="#">Visa Services</a>
+                        <a href="#">Logistics Solutions</a>
+                        <a href="#">Trade Financing</a>
+                        <a href="#">Consultancy</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Contact</h3>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            1903-Burj Khalifa,<br>
+                            Dubai, U.A.E.
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <a href="tel:+97148823939">+971 4882 3939</a><br>
+                            <a href="https://wa.me/971558881030">WhatsApp: +971 5588 81030</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <a href="mailto:invest@kishinvestmentpark.com">invest@kishinvestmentpark.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kish Investment Park. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Handle Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuCloseBtn = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuCloseBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        // Handle header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Handle scroll reveal animations
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        function checkReveal() {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Handle alphabet filter
+        const alphabetItems = document.querySelectorAll('.alphabet-item');
+        
+        alphabetItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                alphabetItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                item.classList.add('active');
+                
+                // Add filter logic here (just a placeholder for now)
+                const letter = item.getAttribute('data-letter');
+                console.log(`Filtering by letter: ${letter}`);
+                
+                // Simulate filtering - in a real implementation, this would filter the business cards
+                if (letter === 'all') {
+                    // Show all businesses
+                } else {
+                    // Show only businesses that start with the selected letter
+                }
+            });
+        });
+
+        // Handle search and filters
+        const searchButton = document.getElementById('searchButton');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const zoneFilter = document.getElementById('zoneFilter');
+        const sortFilter = document.getElementById('sortFilter');
+        
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const category = categoryFilter.value;
+            const zone = zoneFilter.value;
+            const sort = sortFilter.value;
+            
+            console.log(`Search: ${searchTerm}, Category: ${category}, Zone: ${zone}, Sort: ${sort}`);
+            
+            // Implement search logic here (this is just a placeholder)
+            // In a real implementation, this would filter and sort the business cards
+        });
+
+        // Handle pagination
+        const pageItems = document.querySelectorAll('.page-item');
+        
+        pageItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Skip if it's ellipsis or navigation arrow
+                if (item.querySelector('.fa-ellipsis-h') || item.querySelector('.fa-chevron-right')) {
+                    return;
+                }
+                
+                // Remove active class from all items
+                pageItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                item.classList.add('active');
+                
+                // Add pagination logic here (just a placeholder for now)
+                const page = item.textContent;
+                console.log(`Navigating to page: ${page}`);
+                
+                // In a real implementation, this would load the appropriate page of results
+            });
+        });
+    </script>
+</body>
+</html>
