@@ -1,0 +1,751 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - Kish Investment Park</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --garret-50: #f1f5f9;
+            --garret-100: #e2e8f0;
+            --garret-400: #64748b;
+            --garret-500: #073763;
+            --garret-600: #052a4e;
+            --background: #ffffff;
+            --foreground: #333333;
+            --muted-foreground: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background-color: var(--background);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            transition: all 0.3s;
+        }
+        
+        .header-top {
+            background-color: var(--garret-500);
+            color: white;
+            padding: 0.5rem 0;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--garret-100);
+        }
+        
+        .contact-info i {
+            margin-right: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
+        
+        .scrolled nav {
+            padding: 0.75rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--garret-500);
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo svg {
+            margin-right: 0.5rem;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        .nav-links a {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--garret-500);
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--garret-50);
+            color: var(--garret-600);
+        }
+        
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--garret-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            background-color: var(--garret-50);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            z-index: 100;
+            padding-top: 4rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--garret-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+        
+        .mobile-links {
+            display: flex;
+            flex-direction: column;
+            padding: 0 1rem;
+        }
+        
+        .mobile-links a {
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--garret-500);
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        
+        .mobile-links a:hover {
+            background-color: var(--garret-50);
+            color: var(--garret-600);
+        }
+        
+        .mobile-contact {
+            margin-top: 1.5rem;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid var(--garret-100);
+        }
+        
+        .mobile-contact a, .mobile-contact div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--garret-500);
+            font-size: 0.875rem;
+        }
+        
+        .mobile-contact i {
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                gap: 0.25rem;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .header-top-content {
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--garret-500);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo svg {
+            margin-right: 0.5rem;
+            fill: white;
+        }
+        
+        .footer-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 25rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 1.125rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 0.25rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-icon {
+            font-size: 1rem;
+            padding-top: 0.125rem;
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        /* Terms page specific */
+        .terms-hero {
+            background-image: linear-gradient(rgba(7, 55, 99, 0.8), rgba(7, 55, 99, 0.8)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 0 6rem;
+        }
+
+        .terms-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .terms-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .terms-content h2 {
+            color: var(--garret-500);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .terms-content p, .terms-content ul {
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-content ul {
+            padding-left: 1.5rem;
+        }
+
+        .terms-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* For mobile view: fix emergency contact container header size */
+        @media (max-width: 768px) {
+            .mobile-contact a, .mobile-contact div {
+                font-size: 0.75rem;
+            }
+            
+            .mobile-contact i {
+                font-size: 0.875rem;
+            }
+            
+            footer .emergency-contact-header {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="contact-info">
+                        <a href="mailto:invest@kishinvestmentpark.com">
+                            <i class="fas fa-envelope"></i>
+                            <span>invest@kishinvestmentpark.com</span>
+                        </a>
+                        <a href="tel:+97148823939">
+                            <i class="fas fa-phone"></i>
+                            <span>+971 4882 3939</span>
+                        </a>
+                        <a href="https://wa.me/971558881030">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+971 5588 81030</span>
+                        </a>
+                    </div>
+                    <div class="location-info">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="nav-content">
+                    <a href="index.html" class="logo">
+                        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L40 35H0L20 5Z" fill="#073763"/>
+                            <path d="M50 10H95V16H50V10Z" fill="#073763"/>
+                            <path d="M50 22H80V28H50V22Z" fill="#073763"/>
+                            <path d="M110 10H145V16H110V10Z" fill="#073763"/>
+                            <path d="M110 22H135V28H110V22Z" fill="#073763"/>
+                        </svg>
+                        <span>Kish Investment Park</span>
+                    </a>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="e-services.html">E-Services</a>
+                        <a href="payment-services.html">Payment Services</a>
+                        <a href="zones.html">Zones</a>
+                        <a href="facilities.html">Facilities</a>
+                        <a href="media.html">Media</a>
+                        <a href="faqs.html">FAQs</a>
+                        <a href="directory.html">Directory</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                    <button class="mobile-menu-btn" aria-label="Open menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="e-services.html">E-Services</a>
+            <a href="payment-services.html">Payment Services</a>
+            <a href="zones.html">Zones</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="media.html">Media</a>
+            <a href="faqs.html">FAQs</a>
+            <a href="directory.html">Directory</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="mobile-contact">
+            <a href="mailto:invest@kishinvestmentpark.com">
+                <i class="fas fa-envelope"></i>
+                <span>invest@kishinvestmentpark.com</span>
+            </a>
+            <a href="tel:+97148823939">
+                <i class="fas fa-phone"></i>
+                <span>+971 4882 3939</span>
+            </a>
+            <a href="https://wa.me/971558881030">
+                <i class="fab fa-whatsapp"></i>
+                <span>+971 5588 81030</span>
+            </a>
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>1903-Burj Khalifa, Dubai, U.A.E.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="container">
+            <div class="terms-hero-content">
+                <h1 class="section-title">Terms and Conditions</h1>
+                <p>Last updated: June 1, 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="terms-content">
+        <div>
+            <p>Welcome to Kish Investment Park. By accessing or using our services, you agree to be bound by these Terms and Conditions. Please read them carefully.</p>
+            
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using the Kish Investment Park website, facilities, or services, you agree to be bound by these Terms and Conditions and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site or our services.</p>
+            
+            <h2>2. Investment and Business Operation</h2>
+            <p>Kish Investment Park provides infrastructure, facilities, and services for businesses to operate within its designated zones. All business operations must comply with:</p>
+            <ul>
+                <li>Local laws and regulations</li>
+                <li>Zoning restrictions and requirements</li>
+                <li>Environmental standards and protocols</li>
+                <li>Safety guidelines and industry best practices</li>
+            </ul>
+            
+            <h2>3. Lease and Property Use</h2>
+            <p>Properties and facilities within Kish Investment Park are subject to lease agreements. Tenants must:</p>
+            <ul>
+                <li>Use the property only for approved purposes</li>
+                <li>Maintain the property in good condition</li>
+                <li>Comply with all building codes and regulations</li>
+                <li>Obtain written approval before making structural modifications</li>
+                <li>Return the property in its original condition at the end of the lease term, allowing for normal wear and tear</li>
+            </ul>
+            
+            <h2>4. Service Fees</h2>
+            <p>Service fees are charged for various facilities and services provided by Kish Investment Park. These fees:</p>
+            <ul>
+                <li>Are subject to annual review and adjustment</li>
+                <li>Must be paid within the specified timeframe</li>
+                <li>May incur late payment charges if not paid on time</li>
+                <li>Are non-refundable unless otherwise specified</li>
+            </ul>
+            
+            <h2>5. Intellectual Property</h2>
+            <p>All content on the Kish Investment Park website, including text, graphics, logos, and images, is the property of Kish Investment Park and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works from this content without express written permission.</p>
+            
+            <h2>6. Limitation of Liability</h2>
+            <p>Kish Investment Park shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our services or from any action taken based on the information provided.</p>
+            
+            <h2>7. Termination of Services</h2>
+            <p>Kish Investment Park reserves the right to terminate or suspend services to any business or individual who violates these Terms and Conditions or engages in activities that may harm the reputation or operations of the Park.</p>
+            
+            <h2>8. Changes to Terms</h2>
+            <p>Kish Investment Park reserves the right to modify these Terms and Conditions at any time. Changes will be effective immediately upon posting on our website. Your continued use of our services after any changes indicates your acceptance of the new terms.</p>
+            
+            <h2>9. Governing Law</h2>
+            <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the United Arab Emirates, without regard to its conflict of law provisions.</p>
+            
+            <h2>10. Contact Information</h2>
+            <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
+            <p>
+                Kish Investment Park<br>
+                1903-Burj Khalifa<br>
+                Dubai, U.A.E.<br>
+                Email: legal@kishinvestmentpark.com<br>
+                Phone: +971 4882 3939
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- Emergency contact banner -->
+            <div class="px-4 py-4 bg-garret-600 rounded-b-lg mx-4 -mt-1 mb-12 shadow-lg" style="background-color: var(--garret-600); border-radius: 0 0 0.5rem 0.5rem; margin: -1px 1rem 3rem; padding: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <i class="fas fa-exclamation-triangle" style="color: #fcd34d; margin-right: 0.5rem;"></i>
+                        <span class="emergency-contact-header" style="font-weight: 500;">Emergency Contacts</span>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.875rem;">
+                        <a href="tel:+97142123911" style="display: flex; align-items: center; transition: color 0.3s;">
+                            <i class="fas fa-phone" style="margin-right: 0.25rem;"></i>
+                            <span>Kish Emergency: +971 4212 3911</span>
+                        </a>
+                        <a href="tel:+97142123912" style="display: flex; align-items: center; transition: color 0.3s;">
+                            <i class="fas fa-phone" style="margin-right: 0.25rem;"></i>
+                            <span>Factory Support: +971 4212 3912</span>
+                        </a>
+                        <a href="tel:+97142123913" style="display: flex; align-items: center; transition: color 0.3s;">
+                            <i class="fas fa-phone" style="margin-right: 0.25rem;"></i>
+                            <span>Fire Department: +971 4212 3913</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L40 35H0L20 5Z" fill="white"/>
+                            <path d="M50 10H95V16H50V10Z" fill="white"/>
+                            <path d="M50 22H80V28H50V22Z" fill="white"/>
+                            <path d="M110 10H145V16H110V10Z" fill="white"/>
+                            <path d="M110 22H135V28H110V22Z" fill="white"/>
+                        </svg>
+                        <span>Kish Investment Park</span>
+                    </div>
+                    <p class="footer-description">
+                        Since our establishment, Kish Investment Park has been a cornerstone of industrial development and international trade in the region.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="zones.html">Zones</a>
+                        <a href="facilities.html">Facilities</a>
+                        <a href="e-services.html">E-Services</a>
+                        <a href="faqs.html">FAQs</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Services</h3>
+                    <div class="footer-links">
+                        <a href="#">Business Setup</a>
+                        <a href="#">Visa Services</a>
+                        <a href="#">Logistics Solutions</a>
+                        <a href="#">Trade Financing</a>
+                        <a href="#">Consultancy</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="footer-heading">Contact</h3>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            1903-Burj Khalifa,<br>
+                            Dubai, U.A.E.
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <a href="tel:+97148823939">+971 4882 3939</a><br>
+                            <a href="https://wa.me/971558881030">WhatsApp: +971 5588 81030</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <a href="mailto:invest@kishinvestmentpark.com">invest@kishinvestmentpark.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kish Investment Park. All rights reserved. | <a href="terms.html">Terms of Use</a> | <a href="privacy.html">Privacy Policy</a> | <a href="sitemap.html">Sitemap</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" style="position: fixed; bottom: 1.5rem; right: 1.5rem; padding: 0.75rem; background-color: var(--garret-500); color: white; border-radius: 9999px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: none; align-items: center; justify-content: center; transition: background-color 0.3s;">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Handle Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuCloseBtn = document.querySelector('.mobile-menu-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuCloseBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        // Handle header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

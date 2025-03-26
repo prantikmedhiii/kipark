@@ -11,9 +11,9 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between">
             <div className="flex items-center mb-4 sm:mb-0">
               <AlertTriangle className="h-5 w-5 mr-2 text-amber-400" />
-              <span className="font-medium">Emergency Contacts</span>
+              <span className="font-medium emergency-contact-header text-sm sm:text-base">Emergency Contacts</span>
             </div>
-            <div className="flex flex-wrap gap-4 text-sm">
+            <div className="flex flex-wrap gap-4 text-xs sm:text-sm">
               <a href="tel:+97142123911" className="flex items-center hover:text-amber-200 transition-colors">
                 <Phone className="h-4 w-4 mr-1" />
                 <span>Kish Emergency: +971 4212 3911</span>
@@ -189,15 +189,15 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} Kish Investment Park. All rights reserved.
             </div>
             <div className="flex flex-wrap justify-center gap-4 text-garret-200 text-sm">
-              <a href="#" className="hover:text-white transition-colors flex items-center">
+              <a href="/terms.html" className="hover:text-white transition-colors flex items-center">
                 Terms of Use
                 <ExternalLink className="ml-1 h-3 w-3" />
               </a>
-              <a href="#" className="hover:text-white transition-colors flex items-center">
+              <a href="/privacy.html" className="hover:text-white transition-colors flex items-center">
                 Privacy Policy
                 <ExternalLink className="ml-1 h-3 w-3" />
               </a>
-              <a href="#" className="hover:text-white transition-colors flex items-center">
+              <a href="/sitemap.html" className="hover:text-white transition-colors flex items-center">
                 Sitemap
                 <ExternalLink className="ml-1 h-3 w-3" />
               </a>
